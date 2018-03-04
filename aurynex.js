@@ -41,6 +41,20 @@ function selectSort(array){
 }
 
 //Validação da entrada de dados do usuario
-function validaEscolha(){
+function verificaAcertos(numUsuario, numSistema){
+	var acertos = 0;
+	for (var i = 0; i < numUsuario.length; i++) {
+		for (var j = 0; j < numUsuario.length; j++) {
+			if(numUsuario[i]==numSistema[j]){
+				acertos++;
+			}
+		}
+	}
+	return acertos;
+}
 
+function pulaLinha(num){
+	for (var i = 0; i < num; i++) {
+		document.write("<br>");
+	}
 }

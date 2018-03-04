@@ -9,29 +9,49 @@
 		<h1 id="titulo">MEGA-SENA</h1>
 		<script src="aurynex.js"></script>
 		<script>
-			var numEscolhidos = [];
 
+			pulaLinha(2);
+
+			var numEscolhidos = []; //guarda os numeros do usuario
 
 			//Validando entrada do usuario
-		for (var i = 0; i < 6; i++) {
-			var escolha = parseInt(prompt("Digite um numero !!!"));
+			for (var i = 0; i < 6; i++) {
+				var escolha = parseInt(prompt("Digite seu " + (i+1) + "* numero !!!"));
 
-			while(escolha < 0 || escolha > 60 || isNaN(escolha) || contem(escolha,numEscolhidos)){
-				if(escolha < 0 || escolha > 60){
-					alert("Numero fora do intervalo [0-60]");
-				}else if(isNaN(escolha)){
-					alert("ERRO! Digite apenas numeros inteiros!");
-				}else {
-					alert("Nao digite numeros repetidos");
+				while(escolha < 0 || escolha > 60 || isNaN(escolha) || contem(escolha,numEscolhidos)){
+					if(escolha < 0 || escolha > 60){
+						alert("Numero fora do intervalo [0-60]");
+					}else if(isNaN(escolha)){
+						alert("ERRO! Digite apenas numeros inteiros!");
+					}else {
+						alert("Nao digite numeros repetidos");
+					}
+					escolha = parseInt(prompt("Digite seu " + (i+1) + "* numero !!!"));
 				}
-				escolha = parseInt(prompt("Digite um numero !!!"));
-			}
+				//guarda informações.
 				numEscolhidos.push(escolha);
-		}
+			}
 
-		var numSortiados = sorteia();
-		numSortiados = selectSort(numSortiados);
-		
+			var numSortiados = sorteia();
+			numSortiados = selectSort(numSortiados);
+			console.log(numSortiados);
+
+			//Retorna quantidade de acertos;
+			var acertos = verificaAcertos(numEscolhidos, numSortiados);
+
+			document.write("<h2>Os numero sortiados foram !!!</h2>");
+
+			for (var i = 0; i < numSortiados.length; i++) {
+				document.write("<span> " + "[ " + numSortiados[i] + " ]</span>");
+			}
+			pulaLinha(4);
+			document.write("<h2>Voce teve " + acertos + " acertos !!!</h2>");
+
+			for (var i = 0; i < numEscolhidos.length; i++) {
+				document.write("<span> " + "[ " + numEscolhidos[i] + " ]</span>");
+			}
+
 		</script>
+
 	</body>
 </html>
