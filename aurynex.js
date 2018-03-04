@@ -1,10 +1,11 @@
+//Sorteia numeros aleatorios
 function sorteia(){
 	//Armazena numeros sortiados
 	var arraySorteado = [];
 
 	for (var i=0; i<6; i++){
 		//Gera um numero aleatorio
-		var numero = Math.round(Math.random() * 60);	
+		var numero = Math.round(Math.random() * 60);
 
 		while(contem(numero, arraySorteado)){
 			numero = Math.round(Math.random() * 60);
@@ -15,6 +16,7 @@ function sorteia(){
 	return arraySorteado;
 }
 
+//Função verifica se contem valor no array
 function contem(valor, array){
 	if (array.indexOf(valor)>=0) {
 		return true;
@@ -22,6 +24,7 @@ function contem(valor, array){
 		return false;
 }
 
+//Metodo de ordenação
 function selectSort(array){
 	for (var i = 0; i < array.length; i++) {
 		var x=i;
@@ -29,10 +32,15 @@ function selectSort(array){
 			if (array[j] < array[x]) {
 				x = j;
 			}
-		}		
+		}
 		var aux = array[i];
 		array[i] = array[x];
 		array[x] = aux;
 	}
 	return array;
+}
+
+//Validação da entrada de dados do usuario
+function validaEscolha(){
+	
 }
