@@ -11,16 +11,27 @@
 		<script>
 			var numEscolhidos = [];
 
-			function escolheNumeros(){
-					for (var i = 0; i < 6; i++) {
-						var euEscolho = parseInt(prompt("Digite um numero !!!"));
-						numEscolhidos.push(euEscolho);
-					}
-			}
-			escolheNumeros();
 
-			var numSortiados = sorteia();
-			numSortiados = selectSort(numSortiados);
+			//Validando entrada do usuario
+		for (var i = 0; i < 6; i++) {
+			var escolha = parseInt(prompt("Digite um numero !!!"));
+
+			while(escolha < 0 || escolha > 60 || isNaN(escolha) || contem(escolha,numEscolhidos)){
+				if(escolha < 0 || escolha > 60){
+					alert("Numero fora do intervalo [0-60]");
+				}else if(isNaN(escolha)){
+					alert("ERRO! Digite apenas numeros inteiros!");
+				}else {
+					alert("Nao digite numeros repetidos");
+				}
+				escolha = parseInt(prompt("Digite um numero !!!"));
+			}
+				numEscolhidos.push(escolha);
+		}
+
+		var numSortiados = sorteia();
+		numSortiados = selectSort(numSortiados);
+		
 		</script>
 	</body>
 </html>

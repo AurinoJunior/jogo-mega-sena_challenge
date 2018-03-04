@@ -42,5 +42,5 @@ function selectSort(array){
 
 //Validação da entrada de dados do usuario
 function validaEscolha(){
-	
+
 }
